@@ -25,8 +25,15 @@ namespace Leshak.Monads.Maybe
             else return evaluator(input);
         }
 
-        //TODO: implement it
-        //public static TResult WithDefault<TInput>,TResult>(this TInput input,TResult resultOnNullInChain) // simular as Return, with default x=>x implementation of evaluator and return
+
+        public static TInput Default<TInput>(this TInput input, TInput resultOnNullInChain)
+          where TInput : class
+           
+        { // simular as Return, with default x=>x implementation of evaluator {
+           if(input==null)return resultOnNullInChain;
+           return input;
+        }
+
 
         /// <summary>
         ///  Context will change, pass true if input is null

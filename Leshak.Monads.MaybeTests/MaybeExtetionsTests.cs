@@ -89,6 +89,40 @@ namespace Leshak.Monads.MaybeTests
         }
 
         [Test]
+        public void Default_AllHasValue_ShouldReturnValue()
+        {
+            var name = peopleWithData.With(p => p.Address).With(p => p.HouseName)
+                .Default("default name"); // show not returned
+
+            //assert
+            name.Should().Be(peopleWithData.Address.HouseName);
+        }
+
+        [Test]
+        public void Default_Value_is_null_ShouldReturnDefaultValue()
+        {
+            //arrange
+            peopleWithData.Address.HouseName = null; // default value should returned
+
+            var name = peopleWithData.With(p => p.Address).With(p => p.HouseName)
+                .Default("default name"); // show not returned
+
+            //assert
+            name.Should().Be("default name");
+        }
+
+        [Test]
+        public void Default_NullInChain_ShouldReturnDefaultValue()
+        {
+            
+            var name = peopleWithNull.With(p => p.Address).With(p => p.HouseName)
+                .Default("default name"); // show not returned
+
+            //assert
+            name.Should().Be("default name");
+        }
+
+        [Test]
         public void IsNull_NullInChain_ShouldReturn_True()
         {
             peopleWithNull
