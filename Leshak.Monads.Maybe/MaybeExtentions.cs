@@ -35,24 +35,6 @@ namespace Leshak.Monads.Maybe
         }
 
 
-        /// <summary>
-        ///  Context will change, pass true if input is null
-        /// </summary>
-        /// <typeparam name="TInput"></typeparam>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        public static bool IsNull<TInput>(this TInput input) // in screencast called ReturnSuccess
-        {
-            return input == null;
-        }
-
-        /// <summary>
-        ///  Context will change, pass true if input is not null
-        /// </summary>
-        public static bool IsNotNull<TInput>(this TInput input)
-        {
-            return input != null;
-        }
 
         /// <summary>
         ///  broke maybe chain if predicate return null, othewise pass input

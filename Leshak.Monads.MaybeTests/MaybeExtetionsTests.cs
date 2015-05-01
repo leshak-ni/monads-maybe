@@ -122,47 +122,7 @@ namespace Leshak.Monads.MaybeTests
             name.Should().Be("default name");
         }
 
-        [Test]
-        public void IsNull_NullInChain_ShouldReturn_True()
-        {
-            peopleWithNull
-                .With(p => p.Address).With(p => p.HouseName)
-                .IsNull()
-                // assert
-                  .Should().Be(true);
-        }
-
-        [Test]
-        public void IsNull_AllHasValues_ShouldReturn_False()
-        {
-            peopleWithData
-                .With(p => p.Address).With(p => p.HouseName)
-                .IsNull()
-                // assert
-                  .Should().Be(false);
-        }
-
-
-        [Test]
-        public void IsNotNull_NullInChain_ShouldReturn_False()
-        {
-            peopleWithNull
-                .With(p => p.Address).With(p => p.HouseName)
-                .IsNotNull()
-                // assert
-                  .Should().Be(false);
-        }
-
-        [Test]
-        public void IsNotNull_AllHasValues_ShouldReturn_True()
-        {
-            peopleWithData
-                .With(p => p.Address).With(p => p.HouseName)
-                .IsNotNull()
-                // assert
-                  .Should().Be(true);
-        }
-
+     
         [Test]
         public void If_NullInChain_ShouldReturnNull()
         {
