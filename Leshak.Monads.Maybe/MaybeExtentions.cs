@@ -8,11 +8,12 @@ namespace Leshak.Monads.Maybe
 {
     public static class MaybeExtentions
     {
-        public static TResult With<TInput, TResult>(this TInput Input, Func<TInput, TResult> evaluator)
+        public static TResult With<TInput, TResult>(this TInput input, Func<TInput, TResult> evaluator)
             where TInput : class
             where TResult : class
         {
-            return null;
+            if (input == null) return null;
+            else return evaluator(input);
         }
     }
 }
