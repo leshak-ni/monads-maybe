@@ -9,17 +9,13 @@ namespace Leshak.Monads.Maybe
     public static class MaybeExtentions
     {
         public static TResult With<TInput, TResult>(this TInput input, Func<TInput, TResult> evaluator)
-            where TInput : class
-            where TResult : class
         {
-            if (input == null) return null;
+            if (input == null) return default(TResult);
             else return evaluator(input);
         }
 
 
         public static TResult Return<TInput, TResult>(this TInput input, Func<TInput, TResult> evaluator,TResult resultOnNullInChain)
-            where TInput : class
-            where TResult : class
         {
             if (input == null) return resultOnNullInChain;
             else return evaluator(input);
@@ -27,8 +23,6 @@ namespace Leshak.Monads.Maybe
 
 
         public static TInput Default<TInput>(this TInput input, TInput resultOnNullInChain)
-          where TInput : class
-           
         { // simular as Return, with default x=>x implementation of evaluator {
            if(input==null)return resultOnNullInChain;
            return input;
@@ -59,10 +53,9 @@ namespace Leshak.Monads.Maybe
         /// </summary>
         
         public static TInput If<TInput>(this TInput input,Predicate<TInput> evaluator)
-        where TInput:class
         {
-            if (input == null) return null;
-            return evaluator(input) ? input : null;
+            if (input == null) return default(TInput);
+            return evaluator(input) ? input : default(TInput);
         }
 
         /// <summary>
@@ -70,9 +63,8 @@ namespace Leshak.Monads.Maybe
         /// </summary>
         
         public static TInput Do<TInput>(this TInput input,Action<TInput> action) 
-        where TInput:class
         {
-            if (input == null) return null;
+            if (input == null) return default(TInput);
             action(input);
             return input;
         }
