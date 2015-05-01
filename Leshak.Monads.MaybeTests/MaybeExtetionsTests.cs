@@ -54,5 +54,31 @@ namespace Leshak.Monads.MaybeTests
             //asserts
             name.Should().Be("Some Name");
         }
+
+        [Test]
+        public void Result_NullInChain_ShouldReturn_FailValue()
+        {
+            People people = new People();
+
+            //action
+            var name = people.With(p => p.Address).With(p => p.HouseName)
+                        .Return(x=>x,"Default value");
+
+            //asserts
+            name.Should().Be("Default value");
+        }
+
+        [Test]
+        public void Result_AllHasValues_ShouldReturn_Value()
+        {
+            People people = new People();
+
+            //action
+            var name = people.With(p => p.Address).With(p => p.HouseName)
+                        .Return(x => x, "Default value");
+
+            //asserts
+            name.Should().Be("Default value");
+        }
     }
 }
