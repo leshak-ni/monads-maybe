@@ -160,5 +160,38 @@ namespace Leshak.Monads.MaybeTests
                 .With(p=>p.HouseName)
                 .Should().Be("Some Name");
         }
+
+        [Test]
+        public void Do_NullInChain_DoNotExecuted()
+        {
+            bool executed=false;
+
+            peopleWithNull
+                .With(p => p.Address)
+                .Do(p => executed = true)
+                .Should().BeNull();
+
+            //assert
+            executed.Should().BeFalse();
+
+        }
+
+        [Test]
+        public void Do_NullInChain_Executed()
+        {
+            bool executed = false;
+
+            peopleWithData
+                .With(p => p.Address)
+                .Do(a => {
+                    executed = true;
+                    a.Should().Be(peopleWithData.Address);// check value passed to action
+                })
+                .Should().Be(peopleWithData.Address); // check value passed to chain
+
+            //assert
+            executed.Should().BeTrue();
+
+        }
     }
 }

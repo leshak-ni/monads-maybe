@@ -57,6 +57,18 @@ namespace Leshak.Monads.Maybe
             if (input == null) return null;
             return evaluator(input) ? input : null;
         }
+
+        /// <summary>
+        ///  do not changed context, do action if input is not null
+        /// </summary>
+        
+        public static TInput Do<TInput>(this TInput input,Action<TInput> action) 
+        where TInput:class
+        {
+            if (input == null) return null;
+            action(input);
+            return input;
+        }
         
     }
 }
