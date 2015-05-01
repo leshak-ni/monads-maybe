@@ -28,5 +28,21 @@ namespace Leshak.Monads.Maybe
         }
 
 
+        public static bool IsNullOrEmpty(this string input)
+        {
+            return string.IsNullOrEmpty(input);
+        }
+
+        public static bool IsNullOrWhiteSpace(this string input)
+        {
+            return string.IsNullOrWhiteSpace(input);
+        }
+
+        public static bool IsNullOrEmptyOrWhiteSpace(this string input)
+        {
+            return string.IsNullOrWhiteSpace(input) || input == string.Empty;
+        }
+
+
     }
 }
