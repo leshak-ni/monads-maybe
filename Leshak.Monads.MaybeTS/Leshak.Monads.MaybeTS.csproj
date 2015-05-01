@@ -18,13 +18,16 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app.css" />
+    <Content Include="css\qunit-1.18.0.css" />
     <Content Include="index.html" />
+    <Content Include="libs\qunit-1.18.0.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="file1.ts" />
+    <TypeScriptCompile Include="libs\typed\qunit.d.ts" />
+    <TypeScriptCompile Include="Maybe.tests.ts" />
+    <TypeScriptCompile Include="Maybe.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -34,9 +37,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="libs\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>
