@@ -28,15 +28,34 @@ namespace Leshak.Monads.Maybe
         //TODO: implement it
         //public static TResult WithDefault<TInput>,TResult>(this TInput input,TResult resultOnNullInChain) // simular as Return, with default x=>x implementation of evaluator and return
 
-        
+        /// <summary>
+        ///  Context will change, pass true if input is null
+        /// </summary>
+        /// <typeparam name="TInput"></typeparam>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static bool IsNull<TInput>(this TInput input) // in screencast called ReturnSuccess
         {
             return input == null;
         }
 
+        /// <summary>
+        ///  Context will change, pass true if input is not null
+        /// </summary>
         public static bool IsNotNull<TInput>(this TInput input)
         {
             return input != null;
+        }
+
+        /// <summary>
+        ///  broke maybe chain if predicate return null, othewise pass input
+        /// </summary>
+        
+        public static TInput If<TInput>(this TInput input,Predicate<TInput> evaluator)
+        where TInput:class
+        {
+            if (input == null) return null;
+            return evaluator(input) ? input : null;
         }
         
     }

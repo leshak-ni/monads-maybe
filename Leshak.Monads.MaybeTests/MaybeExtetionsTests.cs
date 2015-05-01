@@ -128,5 +128,37 @@ namespace Leshak.Monads.MaybeTests
                 // assert
                   .Should().Be(true);
         }
+
+        [Test]
+        public void If_NullInChain_ShouldReturnNull()
+        {
+            peopleWithNull
+                .With(p => p.Address)
+                .If(p => true) // input is null, evaluator return false
+                // assert
+                .Should().BeNull();
+        }
+
+        [Test]
+        public void If_EvaluatorReturnFalse_ShouldReturnNull()
+        {
+            peopleWithData
+                .With(p => p.Address)
+                .If(p => p.HouseName.Length<3) // input is not null, evaluator return false
+                // assert
+                .With(p => p.HouseName)
+                .Should().BeNull();
+        }
+
+        [Test]
+        public void If_EvaluatorReturnTrue_ShouldReturnValue()
+        {
+            peopleWithData
+                .With(p => p.Address)
+                .If(p => p.HouseName.Length > 3) // input is not null, evaluator return false
+                // assert
+                .With(p=>p.HouseName)
+                .Should().Be("Some Name");
+        }
     }
 }
