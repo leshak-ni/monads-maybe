@@ -27,7 +27,17 @@ namespace Leshak.Monads.Maybe
 
         //TODO: implement it
         //public static TResult WithDefault<TInput>,TResult>(this TInput input,TResult resultOnNullInChain) // simular as Return, with default x=>x implementation of evaluator and return
+
         
+        public static bool IsNull<TInput>(this TInput input) // in screencast called ReturnSuccess
+        {
+            return input == null;
+        }
+
+        public static bool IsNotNull<TInput>(this TInput input)
+        {
+            return input != null;
+        }
         
     }
 }

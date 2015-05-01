@@ -87,5 +87,25 @@ namespace Leshak.Monads.MaybeTests
             //asserts
             name.Should().Be("Some Name");
         }
+
+        [Test]
+        public void IsNull_NullInChain_ShouldReturn_True()
+        {
+            peopleWithNull
+                .With(p => p.Address).With(p => p.HouseName)
+                .IsNull()
+                // assert
+                  .Should().Be(true);
+        }
+
+        [Test]
+        public void IsNull_AllHasValues_ShouldReturn_False()
+        {
+            peopleWithData
+                .With(p => p.Address).With(p => p.HouseName)
+                .IsNull()
+                // assert
+                  .Should().Be(false);
+        }
     }
 }
