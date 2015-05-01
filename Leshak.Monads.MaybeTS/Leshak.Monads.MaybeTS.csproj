@@ -24,7 +24,6 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="libs\typed\qunit.d.ts" />
     <TypeScriptCompile Include="Maybe.tests.ts" />
     <TypeScriptCompile Include="Maybe.ts" />
