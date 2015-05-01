@@ -12,6 +12,11 @@ class Maybe<TInput> {
         return new Maybe(evaluator(this.value));
     }
 
+    public result<TResult>(evaluator: (x: TInput) => TResult,valueOnInputNull:TResult=null): Maybe<TResult> {
+        if (this.value == null || typeof this.value == "undefined") return new Maybe(valueOnInputNull);
+        return new Maybe(evaluator(this.value));
+    }
+
 }
 
 function maybe<TInput>(value: TInput) {// short alias of new Maybe

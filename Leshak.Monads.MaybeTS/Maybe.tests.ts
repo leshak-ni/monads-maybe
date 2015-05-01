@@ -42,7 +42,7 @@ QUnit.test("with: null in chanin should return null", (assert) => {
 
 });
 
-QUnit.test("with: null in chanin should return null", (assert) => {
+QUnit.test("with: null in chain should return null", (assert) => {
     var _peopleWithUndefined: any = {};
     var peopleWithUndefined = _peopleWithUndefined;
     //action
@@ -54,7 +54,7 @@ QUnit.test("with: null in chanin should return null", (assert) => {
 });
 
 
-QUnit.test("with: all props has values should return null", (assert) => {
+QUnit.test("with: all props has values should return value", (assert) => {
     //action
     var name = maybe(peopleWithData)
         .with(p=> p.address).with(p=> p.HouseName).value;
@@ -64,6 +64,28 @@ QUnit.test("with: all props has values should return null", (assert) => {
 });
 //#endregion
 
+
+//#region Result
+QUnit.test("result: null in chain should return 'default value'", (assert) => {
+    //action
+    var name = maybe(peopleWithNull)
+        .with(p=> p.address).with(p=> p.HouseName)
+        .result(x=>x,"default value").value;
+    //assert
+    assert.equal(name, 'default value');
+
+});
+
+QUnit.test("result: all props has values should return value", (assert) => {
+    //action
+    var name = maybe(peopleWithData)
+        .with(p=> p.address).with(p=> p.HouseName)
+        .result(x=> x, "default value").value;
+    //assert
+    assert.equal(name, "Some Name");
+
+});
+//#endregion
 
 //#region DataClasses
 class People {
