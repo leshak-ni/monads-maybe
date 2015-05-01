@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leshak.Monads.Maybe", "Lesh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leshak.Monads.MaybeTests", "Leshak.Monads.MaybeTests\Leshak.Monads.MaybeTests.csproj", "{93B2AE0E-CE37-41B3-8142-2BF54297F037}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leshak.Monads.MaybeTS", "Leshak.Monads.MaybeTS\Leshak.Monads.MaybeTS.csproj", "{FB6F3E1C-E5E0-4D75-ACA3-611957D816D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{93B2AE0E-CE37-41B3-8142-2BF54297F037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93B2AE0E-CE37-41B3-8142-2BF54297F037}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93B2AE0E-CE37-41B3-8142-2BF54297F037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6F3E1C-E5E0-4D75-ACA3-611957D816D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6F3E1C-E5E0-4D75-ACA3-611957D816D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6F3E1C-E5E0-4D75-ACA3-611957D816D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6F3E1C-E5E0-4D75-ACA3-611957D816D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
