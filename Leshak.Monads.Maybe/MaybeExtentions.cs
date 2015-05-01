@@ -8,6 +8,12 @@ namespace Leshak.Monads.Maybe
 {
     public static class MaybeExtentions
     {
+        /// <summary>
+        /// Returns the value of an input, or <c>default(T)</c> if any input are <c>null</c>.
+        /// </summary>
+        /// <typeparam name="TInput">The type of the Expression</typeparam>
+        /// <param name="expression">A parameterless lambda representing the path to the value.</param>
+        /// <returns>The value of the expression, or <c>default(T)</c> if any parts of the expression are <c>null</c>.</returns>
         public static TResult With<TInput, TResult>(this TInput input, Func<TInput, TResult> evaluator)
         {
             if (input == null) return default(TResult);
