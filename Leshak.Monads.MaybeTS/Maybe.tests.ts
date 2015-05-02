@@ -42,7 +42,7 @@ QUnit.test("with: null in chanin should return null", (assert) => {
 
 });
 
-QUnit.test("with: null in chain should return null", (assert) => {
+QUnit.test("with: undefine in chain should return null", (assert) => {
     var _peopleWithUndefined: any = {};
     var peopleWithUndefined = _peopleWithUndefined;
     //action
