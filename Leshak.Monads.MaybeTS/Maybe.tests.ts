@@ -168,6 +168,42 @@ QUnit.test("if: evaluator return true and value not null, should return value ",
 
 //#endregion
 
+//#region do
+QUnit.test("do: null in chain should not execute action", (assert) => {
+    //arrange
+    var executed: boolean = false;
+
+    var name = maybe(peopleWithNull).with(p=> p.address)
+    //action
+        .do(p=> executed = true)
+    //assert
+        .with(p=> p.HouseName).value;
+    assert.ok(executed === false);
+
+
+});
+
+
+
+QUnit.test("do:  all props has values, should execute action", (assert) => {
+    //arrange
+    var executed: boolean = false;
+
+    var name = maybe(peopleWithData).with(p=> p.address)
+    //action
+        .do(p=> executed = true)
+    //assert
+        .with(p=> p.HouseName).value;
+    assert.ok(executed === true);
+    assert.equal(name, "Some Name");
+
+
+});
+
+
+
+//#endregion
+
 //#region DataClasses
 class People {
     public address: Address ;

@@ -28,6 +28,12 @@ class Maybe<TInput> {
         return evaluator(this.value) ? this: new Maybe(null);
     }
 
+    public do(action: (x: TInput) => void): Maybe<TInput>  {
+        if (this.value == null || typeof this.value == "undefined") return new Maybe(null);
+        action(this.value);
+        return this;
+    }
+
 }
 
 function maybe<TInput>(value: TInput) {// short alias of new Maybe
