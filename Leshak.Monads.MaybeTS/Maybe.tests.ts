@@ -3,7 +3,7 @@
 
 
 
-//test data
+// test data
 var peopleWithNull: People;
 var peopleWithData: People;
 
@@ -28,16 +28,16 @@ QUnit.test("with: input=null should return null", (assert) => {
     var name = maybe(people)
         .with(p=> p.address).with(p=> p.HouseName).value;
 
-    //assert
+    // assert
     assert.equal(name, null);
 
 });
 
 QUnit.test("with: null in chanin should return null", (assert) => {
-    //action
+    // action
     var name = maybe(peopleWithNull)
         .with(p=> p.address).with(p=> p.HouseName).value;
-    //assert
+    // assert
     assert.equal(name, null);
 
 });
@@ -45,20 +45,20 @@ QUnit.test("with: null in chanin should return null", (assert) => {
 QUnit.test("with: undefine in chain should return null", (assert) => {
     var _peopleWithUndefined: any = {};
     var peopleWithUndefined = _peopleWithUndefined;
-    //action
+    // action
     var name = maybe(peopleWithUndefined)
         .with(p=> p.address).with(p=> p.HouseName).value;
-    //assert
+    // assert
     assert.equal(name, null);
 
 });
 
 
 QUnit.test("with: all props has values should return value", (assert) => {
-    //action
+    // action
     var name = maybe(peopleWithData)
         .with(p=> p.address).with(p=> p.HouseName).value;
-    //assert
+    // assert
     assert.equal(name, "Some Name");
 
 });
@@ -67,21 +67,21 @@ QUnit.test("with: all props has values should return value", (assert) => {
 
 //#region Result
 QUnit.test("result: null in chain should return 'default value'", (assert) => {
-    //action
+    // action
     var name = maybe(peopleWithNull)
         .with(p=> p.address).with(p=> p.HouseName)
         .result(x=>x,"default value").value;
-    //assert
+    // assert
     assert.equal(name, 'default value');
 
 });
 
 QUnit.test("result: all props has values should return value", (assert) => {
-    //action
+    // action
     var name = maybe(peopleWithData)
         .with(p=> p.address).with(p=> p.HouseName)
         .result(x=> x, "default value").value;
-    //assert
+    // assert
     assert.equal(name, "Some Name");
 
 });
@@ -89,34 +89,34 @@ QUnit.test("result: all props has values should return value", (assert) => {
 
 //#region Default
 QUnit.test("default: all props has values, should return value", (assert) => {
-    //action
+    // action
     var name = maybe(peopleWithData)
         .with(p=> p.address).with(p=> p.HouseName)
         .default( "default value").value; // should ingnored
-    //assert
+    // assert
     assert.equal(name, "Some Name");
 
 });
 
 QUnit.test("default: target property is null, should return 'default value'", (assert) => {
-    //arrange
+    // arrange
     peopleWithData.address.HouseName = null;// 'targetPropperty' not set
-    //action
+    // action
     var name = maybe(peopleWithData)
         .with(p=> p.address).with(p=> p.HouseName)
         .default("default value").value;
-    //assert
+    // assert
     assert.equal(name, "default value");
 
 });
 
 
 QUnit.test("default: null in chain, should return 'default value'", (assert) => {
-    //action
+    // action
     var name = maybe(peopleWithNull)
         .with(p=> p.address).with(p=> p.HouseName)
         .default("default value").value;
-    //assert
+    // assert
     assert.equal(name, "default value");
 
 });
@@ -129,9 +129,9 @@ QUnit.test("if: null in chain, should return null (if - ignored)", (assert) => {
     
     var name = maybe(peopleWithNull)
         .with(p=> p.address) // it's null
-        //action
+        // action
         .if(p=> true) // evaluator return true,but input is null 
-        //assert
+        // assert
         .with(p=>p.HouseName).value;
     
     assert.equal(name, null);
@@ -143,9 +143,9 @@ QUnit.test("if: evaluator return false, should return null ", (assert) => {
     
     var name = maybe(peopleWithData)
         .with(p=> p.address) // it's not null
-        //action
+        // action
         .if(p=> p.HouseName.length < 3) // input has value, but evaluator return false
-        //assert
+        // assert
         .with(p=> p.HouseName).value;
     
     assert.equal(name, null);
@@ -157,9 +157,9 @@ QUnit.test("if: evaluator return true and value not null, should return value ",
 
     var name = maybe(peopleWithData)
         .with(p=> p.address) // it's not null
-    //action
+    // action
         .if(p=> p.HouseName.length > 3) // input has value and evaluator return true
-    //assert
+    // assert
         .with(p=> p.HouseName).value;
 
     assert.equal(name, "Some Name");
@@ -170,13 +170,13 @@ QUnit.test("if: evaluator return true and value not null, should return value ",
 
 //#region do
 QUnit.test("do: null in chain should not execute action", (assert) => {
-    //arrange
+    // arrange
     var executed: boolean = false;
 
     var name = maybe(peopleWithNull).with(p=> p.address)
-    //action
+    // action
         .do(p=> executed = true)
-    //assert
+    // assert
         .with(p=> p.HouseName).value;
     assert.ok(executed === false);
 
@@ -186,13 +186,13 @@ QUnit.test("do: null in chain should not execute action", (assert) => {
 
 
 QUnit.test("do:  all props has values, should execute action", (assert) => {
-    //arrange
+    // arrange
     var executed: boolean = false;
 
     var name = maybe(peopleWithData).with(p=> p.address)
-    //action
+    // action
         .do(p=> executed = true)
-    //assert
+    // assert
         .with(p=> p.HouseName).value;
     assert.ok(executed === true);
     assert.equal(name, "Some Name");

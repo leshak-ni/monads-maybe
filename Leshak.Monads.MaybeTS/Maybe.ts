@@ -5,7 +5,7 @@ class Maybe<TInput> {
 
     constructor(input: TInput) {
         this.value = input;
-        if (typeof this.value === "undefined") this.value = null;// normalize "undefined" to null
+        if (typeof this.value === "undefined") { this.value = null; }// normalize "undefined" to null
     }
 
     public with<TResult>(evaluator: (x: TInput) => TResult): Maybe<TResult> {
