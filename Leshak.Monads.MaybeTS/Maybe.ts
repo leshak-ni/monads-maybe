@@ -18,7 +18,7 @@ class Maybe<TInput> {
         return new Maybe(evaluator(this.value));
     }
 
-    public default(valueOnInputNull: TInput):Maybe<TInput> { 
+    public default(valueOnInputNull: TInput):Maybe<TInput> {
         // simular as Return, with default x=>x implementation of evaluator {
         if (this.value === null) { return new Maybe(valueOnInputNull); }
         return this;
