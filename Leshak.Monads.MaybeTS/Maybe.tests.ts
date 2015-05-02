@@ -23,7 +23,7 @@ QUnit.module("Maybe", {
 //#region with Method
 QUnit.test("with: input=null should return null", (assert) => {
     var people:People = null;
-    var pm = new Maybe(people);
+
 
     var name = maybe(people)
         .with(p=> p.address).with(p=> p.HouseName).value;
@@ -173,7 +173,7 @@ QUnit.test("do: null in chain should not execute action", (assert) => {
     // arrange
     var executed: boolean = false;
 
-    var name = maybe(peopleWithNull).with(p=> p.address)
+    maybe(peopleWithNull).with(p=> p.address)
     // action
         .do(p=> executed = true)
     // assert

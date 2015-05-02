@@ -36,8 +36,8 @@ class Maybe<TInput> {
     }
 
 }
-
+/* tslint:disable:no-unused-variable */
 function maybe<TInput>(value: TInput) {// short alias of new Maybe
     return new Maybe(value);
 }
-
+/* tslint:enable:no-unused-variable */
