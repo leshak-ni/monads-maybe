@@ -9,28 +9,28 @@ class Maybe<TInput> {
     }
 
     public with<TResult>(evaluator: (x: TInput) => TResult): Maybe<TResult> {
-        if (this.value === null) return new Maybe(null);
+        if (this.value === null) { return new Maybe(null); }
         return new Maybe(evaluator(this.value));
     }
 
     public result<TResult>(evaluator: (x: TInput) => TResult,valueOnInputNull:TResult=null): Maybe<TResult> {
-        if (this.value === null) return new Maybe(valueOnInputNull);
+        if (this.value === null) { return new Maybe(valueOnInputNull); }
         return new Maybe(evaluator(this.value));
     }
 
     public default(valueOnInputNull: TInput):Maybe<TInput> { 
         // simular as Return, with default x=>x implementation of evaluator {
-        if (this.value === null) return new Maybe(valueOnInputNull);
+        if (this.value === null) { return new Maybe(valueOnInputNull); }
         return this;
     }
 
     public if(evaluator: (x: TInput) => boolean): Maybe<TInput> {
-        if (this.value === null) return new Maybe(null);
+        if (this.value === null) { return new Maybe(null); }
         return evaluator(this.value) ? this: new Maybe(null);
     }
 
     public do(action: (x: TInput) => void): Maybe<TInput>  {
-        if (this.value === null) return new Maybe(null);
+        if (this.value === null) { return new Maybe(null); }
         action(this.value);
         return this;
     }
