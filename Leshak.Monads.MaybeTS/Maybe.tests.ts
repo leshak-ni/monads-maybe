@@ -72,7 +72,7 @@ QUnit.test("result: null in chain should return 'default value'", (assert) => {
         .with(p=> p.address).with(p=> p.HouseName)
         .result(x=>x,"default value").value;
     // assert
-    assert.equal(name, 'default value');
+    assert.equal(name, "default value");
 
 });
 

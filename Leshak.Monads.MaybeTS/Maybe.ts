@@ -1,4 +1,5 @@
 ﻿/// <reference path="libs/typed/qunit.d.ts" />
+
 class Maybe<TInput> {
 
     public value: TInput;
@@ -37,7 +38,9 @@ class Maybe<TInput> {
 
 }
 /* tslint:disable:no-unused-variable */
+
 function maybe<TInput>(value: TInput) {// short alias of new Maybe
+    "use strict";
     return new Maybe(value);
 }
 /* tslint:enable:no-unused-variable */
