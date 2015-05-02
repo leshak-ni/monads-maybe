@@ -99,7 +99,7 @@ namespace Leshak.Monads.MaybeTests
         }
 
         [Test]
-        public void Default_Value_is_null_ShouldReturnDefaultValue()
+        public void Default_TargetPropIsNull_ShouldReturnDefaultValue()
         {
             //arrange
             peopleWithData.Address.HouseName = null; // default value should returned
@@ -127,8 +127,8 @@ namespace Leshak.Monads.MaybeTests
         public void If_NullInChain_ShouldReturnNull()
         {
             peopleWithNull
-                .With(p => p.Address)
-                .If(p => true) // input is null, evaluator return false
+                .With(p => p.Address) // it's null
+                .If(p => true) // evaluator return true,input is null 
                 // assert
                 .Should().BeNull();
         }
@@ -171,7 +171,7 @@ namespace Leshak.Monads.MaybeTests
         }
 
         [Test]
-        public void Do_NullInChain_Executed()
+        public void Do_AllHasValues_Executed()
         {
             bool executed = false;
 
