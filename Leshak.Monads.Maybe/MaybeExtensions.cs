@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leshak.Monads.Maybe
 {
-    public static class MaybeExtentions
+    public static class MaybeExtensions
     {
         /// <summary>
         /// Returns the value of an input, or <c>default(T)</c> if any input are <c>null</c>.

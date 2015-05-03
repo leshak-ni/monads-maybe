@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leshak.Monads.MaybeTests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leshak.Monads.MaybeTS", "Leshak.Monads.MaybeTS\Leshak.Monads.MaybeTS.csproj", "{FB6F3E1C-E5E0-4D75-ACA3-611957D816D2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE1BEC32-41CD-4B27-95C0-61D1F867B6CD}"
+	ProjectSection(SolutionItems) = preProject
+		CustomDictionary.xml = CustomDictionary.xml
+		Leshak.ruleset = Leshak.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

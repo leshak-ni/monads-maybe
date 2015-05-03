@@ -10,7 +10,7 @@ using FluentAssertions;
 namespace Leshak.Monads.MaybeTests
 {
     [TestFixture]
-    public class MaybeByExpressionExtentionsTests
+    public class MaybeByExpressionExtensionsTests
     {
         //test data
         People peopleWithNull;
@@ -31,7 +31,7 @@ namespace Leshak.Monads.MaybeTests
         }
 
         [Test]
-        public void Maybe_NullInput_ShouldReturn_NUll()
+        public void Maybe_NullInput_ShouldReturn_Null()
         {
             People people = null;
 
@@ -67,12 +67,12 @@ namespace Leshak.Monads.MaybeTests
         }
 
         [Test]
-        public void MaybeOrig_AllHasValues_ShouldReturn_Value()
+        public void MaybeOriginal_AllHasValues_ShouldReturn_Value()
         {
 
 
             //action
-            var name = MaybeByExpressionExtentions.Maybe(()=>peopleWithData.Address.HouseName);
+            var name = MaybeByExpressionExtensions.Maybe(()=>peopleWithData.Address.HouseName);
 
             //asserts
             name.Should().Be("Some Name");

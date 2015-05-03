@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leshak.Monads.Maybe
 {
-    public static class AssertsExtetions
+    public static class AssertsExtensions
     {
         /// <summary>
         ///  Context will change, pass true if input is null
@@ -43,6 +43,7 @@ namespace Leshak.Monads.Maybe
             return string.IsNullOrWhiteSpace(input) || input == string.Empty;
         }
 
+      
 
     }
 }

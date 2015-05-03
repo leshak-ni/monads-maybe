@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace Leshak.Monads.Maybe
 {
-    public static class MaybeByExpressionExtentions
+    public static class MaybeByExpressionExtensions
     {
         /// <summary>
         /// Returns the value of an expression, or <c>default(T)</c> if any parts of the expression are <c>null</c>.

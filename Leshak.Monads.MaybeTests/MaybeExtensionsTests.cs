@@ -10,7 +10,7 @@ using FluentAssertions;
 namespace Leshak.Monads.MaybeTests
 {
     [TestFixture]
-    public class MaybeExtetionsTests
+    public class MaybeExtensionsTests
     {
         //test data
         People peopleWithNull;
@@ -29,7 +29,7 @@ namespace Leshak.Monads.MaybeTests
         }
 
         [Test]
-        public void With_NullInput_ShouldReturn_NUll()
+        public void With_NullInput_ShouldReturn_Null()
         {
             People people = null;
 
