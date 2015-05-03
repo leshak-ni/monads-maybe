@@ -22,8 +22,7 @@ QUnit.module("Maybe", {
 
 //#region with Method
 QUnit.test("with: input=null should return null", (assert) => {
-    var people:People = null;
-
+    var people: People = null;
 
     var name = maybe(people)
         .with(p=> p.address).with(p=> p.HouseName).value;
@@ -33,7 +32,7 @@ QUnit.test("with: input=null should return null", (assert) => {
 
 });
 
-QUnit.test("with: null in chanin should return null", (assert) => {
+QUnit.test("with: null in chain should return null", (assert) => {
     // action
     var name = maybe(peopleWithNull)
         .with(p=> p.address).with(p=> p.HouseName).value;
@@ -42,7 +41,7 @@ QUnit.test("with: null in chanin should return null", (assert) => {
 
 });
 
-QUnit.test("with: undefine in chain should return null", (assert) => {
+QUnit.test("with: undefined in chain should return null", (assert) => {
     var _peopleWithUndefined: any = {};
     var peopleWithUndefined = _peopleWithUndefined;
     // action
@@ -92,7 +91,7 @@ QUnit.test("default: all props has values, should return value", (assert) => {
     // action
     var name = maybe(peopleWithData)
         .with(p=> p.address).with(p=> p.HouseName)
-        .default( "default value").value; // should ingnored
+        .default( "default value").value; // should ignored
     // assert
     assert.equal(name, "Some Name");
 

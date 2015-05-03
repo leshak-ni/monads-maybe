@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Leshak.Monads.MaybeTests
 {
-    // used for tesing monads
+    // used for testing monads
     public class People
     {
         public Address Address;

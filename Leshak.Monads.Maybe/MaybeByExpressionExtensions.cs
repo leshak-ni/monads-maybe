@@ -44,7 +44,7 @@ namespace Leshak.Monads.Maybe
             var paramExpression = expression as ParameterExpression;
             if (paramExpression != null)
             {
-                return input; //hack: input is our parametr, we no need refrection to get it value
+                return input; //hack: input is our parameter, we no need reflection to get it value
             }
 
             var memberExpression = expression as MemberExpression;

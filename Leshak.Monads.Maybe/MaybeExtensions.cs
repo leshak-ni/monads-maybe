@@ -29,7 +29,7 @@ namespace Leshak.Monads.Maybe
 
 
         public static TInput Default<TInput>(this TInput input, TInput resultOnNullInChain)
-        { // simular as Return, with default x=>x implementation of evaluator {
+        { // similar as Return, with default x=>x implementation of evaluator {
            if(input==null)return resultOnNullInChain;
            return input;
         }

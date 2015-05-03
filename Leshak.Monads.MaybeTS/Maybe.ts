@@ -20,7 +20,7 @@ class Maybe<TInput> {
     }
 
     public default(valueOnInputNull: TInput):Maybe<TInput> {
-        // simular as Return, with default x=>x implementation of evaluator {
+        // similar as Return, with default x=>x implementation of evaluator {
         if (this.value === null) { return new Maybe(valueOnInputNull); }
         return this;
     }
