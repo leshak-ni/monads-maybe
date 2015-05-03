@@ -11,7 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leshak.Monads.MaybeTS", "Le
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE1BEC32-41CD-4B27-95C0-61D1F867B6CD}"
 	ProjectSection(SolutionItems) = preProject
-		CustomDictionary.xml = CustomDictionary.xml
 		Leshak.ruleset = Leshak.ruleset
 	EndProjectSection
 EndProject
